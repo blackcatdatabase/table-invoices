@@ -2,7 +2,7 @@
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?logo=mysql&logoColor=white) ![License](https://img.shields.io/badge/license-BlackCat%20Proprietary-red) ![Status](https://img.shields.io/badge/status-stable-informational) ![Generated](https://img.shields.io/badge/generated-from%20schema--map-blue)
 
-> Schema package for table **invoices** (repo: $slug).
+> Schema package for table **invoices** (repo: `invoices`).
 
 ## Files
 ```
@@ -57,19 +57,19 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 ```mermaid
 erDiagram
   INVOICES {
-    BIGINT id PK
-    BIGINT order_id
-    VARCHAR(100) invoice_number
-    VARCHAR(50) variable_symbol
-    DATE issue_date
-    DATE due_date
-    DECIMAL(12,2) subtotal
-    DECIMAL(12,2) discount_total
-    DECIMAL(12,2) tax_total
-    DECIMAL(12,2) total
-    CHAR(3) currency
-    LONGTEXT qr_data
-    DATETIME(6) created_at
+    INT id PK
+    INT order_id
+    VARCHAR invoice_number
+    VARCHAR variable_symbol
+    DATETIME issue_date
+    DATETIME due_date
+    DECIMAL subtotal
+    DECIMAL discount_total
+    DECIMAL tax_total
+    DECIMAL total
+    VARCHAR currency
+    VARCHAR qr_data
+    DATETIME created_at
   }
   INVOICES }o--|| ORDERS : "order_id"
 ```
