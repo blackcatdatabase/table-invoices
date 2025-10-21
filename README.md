@@ -71,7 +71,7 @@ erDiagram
     LONGTEXT qr_data
     DATETIME(6) created_at
   }
-  INVOICES }o--|| ORDERS : (order_id)
+  INVOICES }o--|| ORDERS : "order_id"
 ```
 
 ## Indexes
