@@ -14,5 +14,5 @@ CREATE TABLE IF NOT EXISTS invoices (
   currency CHAR(3) NOT NULL,
   qr_data LONGTEXT NULL,
   created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-  CONSTRAINT chk_invoices_currency CHECK (currency REGEXP ''^[A-Z]{3}$'')
+  CONSTRAINT chk_invoices_currency CHECK (currency REGEXP '^[A-Z]{3}$')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
