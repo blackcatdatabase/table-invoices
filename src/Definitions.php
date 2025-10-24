@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\Invoices;
 final class Definitions {
     // --- základní metadata ---
     public static function table(): string { return 'invoices'; }
-    public static function contractView(): string { return 'v_invoices_contract'; }
+    public static function contractView(): string { return 'vw_invoices'; }
     /** @return string[] */
     public static function columns(): array { return [ 'id', 'order_id', 'invoice_number', 'variable_symbol', 'issue_date', 'due_date', 'subtotal', 'discount_total', 'tax_total', 'total', 'currency', 'qr_data', 'created_at' ]; }
     public static function pk(): string { return 'id'; }
