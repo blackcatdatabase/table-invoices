@@ -1,10 +1,11 @@
--- Auto-generated from schema-views-postgres.psd1 (map@9d3471b)
+-- Auto-generated from schema-views-postgres.psd1 (map@62c9c93)
 -- engine: postgres
 -- table:  invoices
 -- Contract view for [invoices]
 CREATE OR REPLACE VIEW vw_invoices AS
 SELECT
   id,
+  tenant_id,
   order_id,
   invoice_number,
   variable_symbol,

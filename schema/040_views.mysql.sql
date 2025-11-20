@@ -1,10 +1,11 @@
--- Auto-generated from schema-views-mysql.psd1 (map@db2f8b8)
+-- Auto-generated from schema-views-mysql.psd1 (map@62c9c93)
 -- engine: mysql
 -- table:  invoices
 -- Contract view for [invoices]
 CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_invoices AS
 SELECT
   id,
+  tenant_id,
   order_id,
   invoice_number,
   variable_symbol,
