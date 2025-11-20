@@ -5,6 +5,7 @@
 CREATE OR REPLACE VIEW vw_invoices AS
 SELECT
   id,
+  tenant_id,
   order_id,
   invoice_number,
   variable_symbol,
