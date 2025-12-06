@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class InvoiceDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'tenant_id' => 'tenantId', 'order_id' => 'orderId', 'invoice_number' => 'invoiceNumber', 'variable_symbol' => 'variableSymbol', 'issue_date' => 'issueDate', 'due_date' => 'dueDate', 'discount_total' => 'discountTotal', 'tax_total' => 'taxTotal', 'qr_data' => 'qrData', 'created_at' => 'createdAt' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'tenant_id' => 'tenantId', 'order_id' => 'orderId', 'invoice_number' => 'invoiceNumber', 'variable_symbol' => 'variableSymbol', 'issue_date' => 'issueDate', 'due_date' => 'dueDate', 'subtotal' => 'subtotal', 'discount_total' => 'discountTotal', 'tax_total' => 'taxTotal', 'total' => 'total', 'currency' => 'currency', 'qr_data' => 'qrData', 'created_at' => 'createdAt' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
@@ -39,13 +39,8 @@ final class InvoiceDtoMapper
 
     private static function tz(): DateTimeZone
     {
-        if (self::$tzObj instanceof DateTimeZone) {
-            return self::$tzObj;
-        }
-        try {
+        if (!(self::$tzObj instanceof DateTimeZone)) {
             self::$tzObj = new DateTimeZone(self::TZ);
-        } catch (\Throwable) {
-            self::$tzObj = new DateTimeZone('UTC');
         }
         return self::$tzObj;
     }
