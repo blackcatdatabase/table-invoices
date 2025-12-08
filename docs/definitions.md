@@ -5,18 +5,18 @@ Issued invoices linked to orders. invoice_number is UNIQUE.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| created_at | TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | currency | CHAR(3) | NO |  | ISO 4217 currency code. |
-| discount_total | NUMERIC(12,2) | NO |  | Total discount amount. |
+| discount_total | DECIMAL(12,2) | NO |  | Total discount amount. |
 | due_date | DATE | YES |  | Due date (optional). |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | invoice_number | VARCHAR(100) | NO |  | Unique invoice number (UNIQUE). |
 | issue_date | DATE | NO |  | Issue date. |
 | order_id | BIGINT | YES |  | Order (FK orders.id), optional. |
-| qr_data | TEXT | YES |  | Encoded payment data (string/QR). |
-| subtotal | NUMERIC(12,2) | NO |  | Subtotal excl. discounts & tax. |
-| tax_total | NUMERIC(12,2) | NO |  | Total tax amount. |
-| total | NUMERIC(12,2) | NO |  | Grand total. |
+| qr_data | LONGTEXT | YES |  | Encoded payment data (string/QR). |
+| subtotal | DECIMAL(12,2) | NO |  | Subtotal excl. discounts & tax. |
+| tax_total | DECIMAL(12,2) | NO |  | Total tax amount. |
+| total | DECIMAL(12,2) | NO |  | Grand total. |
 | variable_symbol | VARCHAR(50) | YES |  | Local payment identifier/VS. |
 
 ## Engine Details
@@ -68,7 +68,7 @@ Foreign keys:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_invoices | mysql | algorithm=MERGE, security=INVOKER | [packages\invoices\schema\040_views.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/invoices/schema/040_views.mysql.sql) |
-| vw_invoices_with_items | mysql | algorithm=TEMPTABLE, security=INVOKER | [packages\invoices\schema\040_views_joins.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/invoices/schema/040_views_joins.mysql.sql) |
-| vw_invoices | postgres |  | [packages\invoices\schema\040_views.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/invoices/schema/040_views.postgres.sql) |
-| vw_invoices_with_items | postgres |  | [packages\invoices\schema\040_views_joins.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/invoices/schema/040_views_joins.postgres.sql) |
+| vw_invoices | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
+| vw_invoices_with_items | mysql | algorithm=TEMPTABLE, security=INVOKER | [schema\040_views_joins.mysql.sql](schema\040_views_joins.mysql.sql) |
+| vw_invoices | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
+| vw_invoices_with_items | postgres |  | [schema\040_views_joins.postgres.sql](schema\040_views_joins.postgres.sql) |
