@@ -5,19 +5,19 @@ Issued invoices linked to orders. invoice_number is UNIQUE.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
-| currency | CHAR(3) | NO |  | ISO 4217 currency code. |
-| discount_total | mysql: DECIMAL(12,2) / postgres: NUMERIC(12,2) | NO |  | Total discount amount. |
-| due_date | DATE | YES |  | Due date (optional). |
 | id | BIGINT | NO |  | Surrogate primary key. |
-| invoice_number | VARCHAR(100) | NO |  | Unique invoice number (UNIQUE). |
-| issue_date | DATE | NO |  | Issue date. |
 | order_id | BIGINT | YES |  | Order (FK orders.id), optional. |
-| qr_data | mysql: LONGTEXT / postgres: TEXT | YES |  | Encoded payment data (string/QR). |
+| invoice_number | VARCHAR(100) | NO |  | Unique invoice number (UNIQUE). |
+| variable_symbol | VARCHAR(50) | YES |  | Local payment identifier/VS. |
+| issue_date | DATE | NO |  | Issue date. |
+| due_date | DATE | YES |  | Due date (optional). |
 | subtotal | mysql: DECIMAL(12,2) / postgres: NUMERIC(12,2) | NO |  | Subtotal excl. discounts & tax. |
+| discount_total | mysql: DECIMAL(12,2) / postgres: NUMERIC(12,2) | NO |  | Total discount amount. |
 | tax_total | mysql: DECIMAL(12,2) / postgres: NUMERIC(12,2) | NO |  | Total tax amount. |
 | total | mysql: DECIMAL(12,2) / postgres: NUMERIC(12,2) | NO |  | Grand total. |
-| variable_symbol | VARCHAR(50) | YES |  | Local payment identifier/VS. |
+| currency | CHAR(3) | NO |  | ISO 4217 currency code. |
+| qr_data | mysql: LONGTEXT / postgres: TEXT | YES |  | Encoded payment data (string/QR). |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 
 ## Engine Details
 
