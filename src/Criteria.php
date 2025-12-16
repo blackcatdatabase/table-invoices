@@ -41,11 +41,11 @@ final class Criteria extends BaseCriteria
         return [ 'invoice_number', 'variable_symbol', 'currency', 'qr_data' ];
     }
 
-/** Columns allowed in ORDER BY (falls back to filterable() when empty). */
-protected function sortable(): array
-{
-    return [ 'id', 'tenant_id', 'order_id', 'invoice_number', 'variable_symbol', 'issue_date', 'due_date', 'subtotal', 'discount_total', 'tax_total', 'total', 'currency', 'qr_data', 'created_at' ];
-}
+    /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
+    protected function sortable(): array
+    {
+        return [ 'id', 'tenant_id', 'order_id', 'invoice_number', 'variable_symbol', 'issue_date', 'due_date', 'subtotal', 'discount_total', 'tax_total', 'total', 'currency', 'qr_data', 'created_at' ];
+    }
 
     /**
      * Whitelist of joinable entities (for safe ->join() usage):
