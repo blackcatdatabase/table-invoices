@@ -252,6 +252,7 @@ use OrderByTools, PkTools, RepositoryHelpers;
           ));
           if (!$rows) { return 0; }
 
+          /** @var list<string> $updCols */
           $updCols = [ 'order_id', 'variable_symbol', 'issue_date', 'due_date', 'subtotal', 'discount_total', 'tax_total', 'total', 'currency', 'qr_data' ];
           if ($updCols && $soft && !in_array($soft, $updCols, true)) { $updCols[] = $soft; }
 
