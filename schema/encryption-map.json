@@ -1,0 +1,50 @@
+{
+  "tables": {
+    "invoices": {
+      "columns": {
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "currency": {
+          "strategy": "passthrough"
+        },
+        "discount_total": {
+          "strategy": "passthrough"
+        },
+        "due_date": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "invoice_number": {
+          "strategy": "passthrough"
+        },
+        "issue_date": {
+          "strategy": "passthrough"
+        },
+        "order_id": {
+          "strategy": "passthrough"
+        },
+        "qr_data": {
+          "strategy": "passthrough"
+        },
+        "subtotal": {
+          "strategy": "passthrough"
+        },
+        "tax_total": {
+          "strategy": "passthrough"
+        },
+        "tenant_id": {
+          "strategy": "passthrough"
+        },
+        "total": {
+          "strategy": "passthrough"
+        },
+        "variable_symbol": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}
